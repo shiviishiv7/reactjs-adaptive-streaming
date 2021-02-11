@@ -1,0 +1,49 @@
+type Post @model 
+@auth (
+    rules: [
+      # allow all authenticated users ability to create posts
+      # allow owners ability to update and delete their posts
+      { allow: owner },
+
+      # allow all authenticated users to read posts
+      { allow: private, operations: [read] },
+
+      # allow all guest users (not authenticated) to read posts
+      { allow: public, provider: apiKey  operations: [read] }
+    ]
+  )
+    @key(name: "todosByTitle", fields: ["title"], queryField: "todosByTitle")   
+    @key(name: "todosByOwner", fields: ["owner"], queryField: "todosByOwner")   
+    
+{
+   id: ID!
+  title: String!
+  owner: String
+  view:String	  
+  description: String
+  imageUrl:String
+  videoUrl:String
+  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+}
+
+type Comment @model
+@auth(
+    rules: [
+      # allow all authenticated users ability to create posts
+      # allow owners ability to update and delete their posts
+      { allow: owner },
+
+      # allow all authenticated users to read posts
+      { allow: private, operations: [read] },
+
+      # allow all guest users (not authenticated) to read posts
+      { allow: public, provider: apiKey  operations: [read] }
+    ]
+  )
+
+  @key(name: "byPost", fields: ["postID", "content"]) {
+  id: ID!
+  postID: ID!
+  content: String!
+}
+

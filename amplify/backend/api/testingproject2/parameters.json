@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "testingproject2",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authtestingproject20a66249d",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

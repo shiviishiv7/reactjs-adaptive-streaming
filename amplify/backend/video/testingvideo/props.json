@@ -1,0 +1,37 @@
+{
+    "shared": {
+        "resourceName": "testingvideo"
+    },
+    "template": {
+        "name": "Amplify_Video_HLS.json"
+    },
+    "contentDeliveryNetwork": {
+        "enableDistribution": false
+    },
+    "parameters": {
+        "authRoleName": {
+            "Ref": "AuthRoleName"
+        },
+        "GraphQLAPIId": {
+            "Fn::GetAtt": [
+                "apitestingproject2",
+                "Outputs.GraphQLAPIIdOutput"
+            ]
+        },
+        "GraphQLEndpoint": {
+            "Fn::GetAtt": [
+                "apitestingproject2",
+                "Outputs.GraphQLAPIEndpointOutput"
+            ]
+        }
+    },
+    "permissions": {
+        "permissionSchema": [
+            "any"
+        ]
+    },
+    "cms": {
+        "overrideSchema": true,
+        "editAPI": true
+    }
+}

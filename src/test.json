@@ -1,0 +1,93 @@
+ {
+      "OutputGroups": [
+        {
+          "Name": "CMAF",
+          "Outputs": [
+            {
+              "Preset": "System-Ott_Cmaf_Cmfc_Avc_16x9_Sdr_1920x1080p_30Hz_10Mbps_Cbr",
+              "NameModifier": "_Ott_Cmaf_Cmfc_Avc_16x9_Sdr_1920x1080p_30Hz_10000Kbps_Cbr"
+            },
+            {
+              "Preset": "System-Ott_Cmaf_Cmfc_Avc_16x9_Sdr_1920x1080p_30Hz_8Mbps_Cbr",
+              "NameModifier": "_Ott_Cmaf_Cmfc_Avc_16x9_Sdr_1920x1080p_30Hz_8000Kbps_Cbr"
+            },
+            {
+              "Preset": "System-Ott_Cmaf_Cmfc_Avc_16x9_Sdr_1440x810p_30Hz_6Mbps_Cbr",
+              "NameModifier": "_Ott_Cmaf_Cmfc_Avc_16x9_Sdr_1440x810p_30Hz_6000Kbps_Cbr"
+            },
+            {
+              "Preset": "System-Ott_Cmaf_Cmfc_Avc_16x9_Sdr_1440x810p_30Hz_5Mbps_Cbr",
+              "NameModifier": "_Ott_Cmaf_Cmfc_Avc_16x9_Sdr_1440x810p_30Hz_5000Kbps_Cbr"
+            },
+            {
+              "Preset": "System-Ott_Cmaf_Cmfc_Avc_16x9_Sdr_1280x720p_30Hz_5Mbps_Cbr",
+              "NameModifier": "_Ott_Cmaf_Cmfc_Avc_16x9_Sdr_1280x720p_30Hz_5000Kbps_Cbr"
+            },
+            {
+              "Preset": "System-Ott_Cmaf_Cmfc_Avc_16x9_Sdr_1280x720p_30Hz_4Mbps_Cbr",
+              "NameModifier": "_Ott_Cmaf_Cmfc_Avc_16x9_Sdr_1280x720p_30Hz_4000Kbps_Cbr"
+            },
+            {
+              "Preset": "System-Ott_Cmaf_Cmfc_Avc_16x9_Sdr_960x540p_30Hz_2.5Mbps_Cbr",
+              "NameModifier": "_Ott_Cmaf_Cmfc_Avc_16x9_Sdr_960x540p_30Hz_2500Kbps_Cbr"
+            },
+            {
+              "Preset": "System-Ott_Cmaf_Cmfc_Avc_16x9_Sdr_768x432p_30Hz_1.2Mbps_Cbr",
+              "NameModifier": "_Ott_Cmaf_Cmfc_Avc_16x9_Sdr_768x432p_30Hz_1200Kbps_Cbr"
+            },
+            {
+              "Preset": "System-Ott_Cmaf_Cmfc_Avc_16x9_Sdr_640x360p_30Hz_0.8Mbps_Cbr",
+              "NameModifier": "_Ott_Cmaf_Cmfc_Avc_16x9_Sdr_640x360p_30Hz_800Kbps_Cbr"
+            },
+            {
+              "Preset": "System-Ott_Cmaf_Cmfc_Avc_16x9_Sdr_416x234p_30Hz_0.36Mbps_Cbr",
+              "NameModifier": "_Ott_Cmaf_Cmfc_Avc_16x9_Sdr_416x234p_30Hz_360Kbps_Cbr"
+            },
+            {
+              "Preset": "System-Ott_Cmaf_Cmfc_Aac_He_96Kbps",
+              "NameModifier": "_Ott_Cmaf_Cmfc_Aac_He_96Kbps"
+            },
+            {
+              "Preset": "System-Ott_Cmaf_Cmfc_Aac_He_64Kbps",
+              "NameModifier": "_Ott_Cmaf_Cmfc_Aac_He_64Kbps"
+            }
+          ],
+          "OutputGroupSettings": {
+            "Type": "CMAF_GROUP_SETTINGS",
+            "CmafGroupSettings": {
+              "WriteHlsManifest": "ENABLED",
+              "WriteDashManifest": "ENABLED",
+              "SegmentLength": 30,
+              "Destination": "s3://myvodstreams-dev-output-9fafz7n3/public/4a5ddd53-f437-4583-83c0-0d46692d8d9a/",
+              "FragmentLength": 3,
+              "SegmentControl": "SEGMENTED_FILES",
+              "ManifestDurationFormat": "INTEGER",
+              "StreamInfResolution": "INCLUDE",
+              "ClientCache": "ENABLED",
+              "ManifestCompression": "NONE",
+              "CodecSpecification": "RFC_4281"
+            }
+          }
+        }
+      ],
+      "AdAvailOffset": 0,
+      "Inputs": [
+        {
+          "AudioSelectors": {
+            "Audio Selector 1": {
+              "Offset": 0,
+              "DefaultSelection": "DEFAULT",
+              "ProgramSelection": 1
+            }
+          },
+          
+          "FilterEnable": "AUTO",
+          "PsiControl": "USE_PSI",
+          "FilterStrength": 0,
+          "DeblockFilter": "DISABLED",
+          "DenoiseFilter": "DISABLED",
+          "TimecodeSource": "ZEROBASED",
+          "FileInput": "s3://myvodstreams-dev-input-9fafz7n3/public/4a5ddd53-f437-4583-83c0-0d46692d8d9a.mp4"
+        }
+      ]
+    }
